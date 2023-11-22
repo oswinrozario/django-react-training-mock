@@ -37,12 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'rest_framework',
     'api',
     'api_2',
     'api_3',
     'api_4',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -53,9 +53,24 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',   
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORD_ALLOWED_ORIGINS = [
+  'http://localhost:5173',
 ]
 
 ROOT_URLCONF = 'employee_management_backend.urls'
+
+
 
 TEMPLATES = [
     {
