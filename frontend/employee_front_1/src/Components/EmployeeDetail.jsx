@@ -10,7 +10,7 @@ const EmployeeDetail = () => {
     axios
       .get("http://localhost:3000/employee/detail/" + id)
       .then((result) => {
-        setEmployee(result.data[0]);
+        setEmployee(result.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -24,10 +24,6 @@ const EmployeeDetail = () => {
         <h4>Emoployee Management System</h4>
       </div>
       <div className="d-flex justify-content-center flex-column align-items-center mt-3">
-        <img
-          src={`http://localhost:3000/Images/` + employee.image}
-          className="emp_det_image"
-        />
         <div className="d-flex align-items-center flex-column mt-5">
           <h3>Name: {employee.name}</h3>
           <h3>Email: {employee.email}</h3>

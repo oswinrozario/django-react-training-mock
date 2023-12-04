@@ -4,14 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Employee = () => {
   const [employee, setEmployee] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/employee")
+      .get("http://127.0.0.1:8000/api_4/employee_api/")
       .then((result) => {
-        if (result.data.Status) {
-          setEmployee(result.data.Result);
+        if (result.data) {
+          setEmployee(result.data);
         } else {
           alert(result.data.Error);
         }
@@ -19,15 +19,16 @@ const Employee = () => {
       .catch((err) => console.log(err));
   }, []);
   const handleDelete = (id) => {
-    axios.delete('http://localhost:3000/auth/delete_employee/'+id)
-    .then(result => {
-        if(result.data.Status) {
-            window.location.reload()
+    axios
+      .delete("http://127.0.0.1:8000/api_4/employee_api/" + id)
+      .then((result) => {
+        if (result.status == "204") {
+          window.location.reload(false);
         } else {
-            alert(result.data.Error)
+          alert(result.data.Error);
         }
-    })
-  } 
+      });
+  };
   return (
     <div className="px-5 mt-3">
       <div className="d-flex justify-content-center">
@@ -41,9 +42,7 @@ const Employee = () => {
           <thead>
             <tr>
               <th>Name</th>
-              <th>Image</th>
-              <th>Email</th>
-              <th>Address</th>
+              <th>Profile</th>
               <th>Salary</th>
               <th>Action</th>
             </tr>
@@ -52,14 +51,7 @@ const Employee = () => {
             {employee.map((e) => (
               <tr>
                 <td>{e.name}</td>
-                <td>
-                  <img
-                    src={`http://localhost:3000/Images/` + e.image}
-                    className="employee_image"
-                  />
-                </td>
-                <td>{e.email}</td>
-                <td>{e.address}</td>
+                <td>{e.profile}</td>
                 <td>{e.salary}</td>
                 <td>
                   <Link

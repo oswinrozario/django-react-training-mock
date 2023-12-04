@@ -7,7 +7,7 @@ const Category = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api_4/category_api/")
+      .get("http://localhost:3000/departments")
       .then((result) => {
         if (result.data) {
           setCategory(result.data);

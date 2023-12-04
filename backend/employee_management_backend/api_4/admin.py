@@ -34,4 +34,4 @@ admin.site.register(User, UserModelAdmin)
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name' , 'profile']
+    list_display = ['id', 'name' , 'profile', 'salary']

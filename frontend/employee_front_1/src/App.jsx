@@ -1,7 +1,7 @@
-import AddEmployeeComponent from "./Components/AddEmployeeComponent";
-import FooterComponent from "./Components/FooterComponent";
-import HeaderComponent from "./Components/HeaderComponent";
-import ListEmployeeComponent from "./Components/ListEmployeeComponent";
+import AddEmployeeComponent from "./Components/old/AddEmployeeComponent";
+import FooterComponent from "./Components/old/FooterComponent";
+import HeaderComponent from "./Components/old/HeaderComponent";
+import ListEmployeeComponent from "./Components/old/ListEmployeeComponent";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,7 +11,6 @@ import Dashboard from "./Components/Dashboard";
 import Home from "./Components/Home";
 import Employee from "./Components/Employee";
 import Category from "./Components/Category";
-import Profile from "./Components/Profile";
 import AddCategory from "./Components/AddCategory";
 import AddEmployee from "./Components/AddEmployee";
 import EditEmployee from "./Components/EditEmployee";
@@ -39,7 +38,7 @@ function App() {
           <Route path="" element={<Home />}></Route>
           <Route path="/dashboard/employee" element={<Employee />}></Route>
           <Route path="/dashboard/category" element={<Category />}></Route>
-          <Route path="/dashboard/profile" element={<Profile />}></Route>
+
           <Route
             path="/dashboard/add_category"
             element={<AddCategory />}

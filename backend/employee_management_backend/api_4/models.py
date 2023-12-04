@@ -82,6 +82,7 @@ class User(AbstractBaseUser):
 class Employee(models.Model):
     name = models.CharField(max_length=50)
     profile = models.CharField(max_length=50)
+    salary = models.IntegerField()
 
 
 class Category(models.Model):
