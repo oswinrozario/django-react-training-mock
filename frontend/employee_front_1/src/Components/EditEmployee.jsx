@@ -13,7 +13,7 @@ const EditEmployee = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api_4/employee_api/" + id)
+      .get("http://13.55.178.92:3000/api_4/employee_api/" + id + "/")
       .then((result) => {
         setEmployee({
           ...employee,
@@ -33,7 +33,7 @@ const EditEmployee = () => {
     formData.append("salary", employee.salary);
 
     axios
-      .put("http://127.0.0.1:8000/api_4/employee_api/" + id, formData)
+      .put("http://13.55.178.92:3000/api_4/employee_api/" + id + "/", formData)
       .then((result) => {
         console.log(result);
         if (result.data) {

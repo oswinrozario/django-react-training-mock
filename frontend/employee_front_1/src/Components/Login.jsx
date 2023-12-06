@@ -13,16 +13,19 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/api_4/login/", values)
+      .post("http://13.55.178.92:3000/api_4/login/", values, {
+        validateStatus: false,
+      })
       .then((result) => {
+        console.log(result);
         if (result.data.token) {
           localStorage.setItem("valid", result.data.token);
           navigate("/dashboard");
         } else {
-          setError(result.data.Error);
+          setError("Invalid Login Credentials");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setError("Invalid Login Credentials"));
   };
 
   return (

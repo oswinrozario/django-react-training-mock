@@ -9,7 +9,7 @@ const AddCategory = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/departments", { name: category })
+      .post("http://13.55.178.92:3000/departments", { name: category })
       .then((result) => {
         if (result.data) {
           navigate("/dashboard/category");

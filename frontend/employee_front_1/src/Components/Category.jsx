@@ -7,7 +7,7 @@ const Category = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/departments")
+      .get("http://13.55.178.92:3000/departments")
       .then((result) => {
         if (result.data) {
           setCategory(result.data);
@@ -23,7 +23,7 @@ const Category = () => {
         <h3>Cetegory List</h3>
       </div>
       <Link to="/dashboard/add_category" className="btn btn-success">
-        Add Cetegory
+        Add Category
       </Link>
       <div className="mt-3">
         <table className="table">

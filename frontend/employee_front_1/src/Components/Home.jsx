@@ -11,14 +11,14 @@ const Home = () => {
   }, []);
 
   const employeeCount = () => {
-    axios.get("http://127.0.0.1:8000/api_4/employee_api/").then((result) => {
+    axios.get("http://13.55.178.92:3000/api_4/employee_api/").then((result) => {
       if (result.data) {
         setemployeeTotal(Object.keys(result.data).length);
       }
     });
   };
   const salaryCount = () => {
-    axios.get("http://127.0.0.1:8000/api_4/employee_api/").then((result) => {
+    axios.get("http://13.55.178.92:3000/api_4/employee_api/").then((result) => {
       if (result.data) {
         let valueAdded = 0;
         for (let i = 0; i < Object.keys(result.data).length; i++) {

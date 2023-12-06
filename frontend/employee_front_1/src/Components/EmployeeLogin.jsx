@@ -13,16 +13,19 @@ const EmployeeLogin = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/api_4/login/", values)
+      .post("http://13.55.178.92:3000/api_4/employee_login/", values, {
+        validateStatus: false,
+      })
       .then((result) => {
-        if (result.data.token) {
-          localStorage.setItem("token", result.data.token);
-          navigate("/employee_detail/" + result.data.id);
+        const { message, employee, token } = result.data;
+        if (message === "Login successful" && token) {
+          localStorage.setItem("token", token);
+          navigate("/employee_detail/" + employee.id);
         } else {
-          setError(result.data.Error);
+          setError(result.data.message);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setError(result.data.message));
   };
 
   return (
